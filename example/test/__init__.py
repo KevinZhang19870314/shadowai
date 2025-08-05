@@ -1,7 +1,7 @@
 """
-MockAI Test Package
+ShadowAI Test Package
 
-Contains unit tests for various components of the MockAI library.
+Contains unit tests for various components of the ShadowAI library.
 """
 
 # Test version

@@ -17,9 +17,9 @@ project_root = Path(__file__).parent.parent.parent
 lib_path = project_root / "lib"
 sys.path.insert(0, str(lib_path))
 
-# Import MockAI components
-from mock_ai import MockAI, Rule, RuleCombination, RulePackage
-from mock_ai.utils.file_utils import load_rules_from_json, save_rules_to_json
+# Import ShadowAI components
+from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai.utils.file_utils import load_rules_from_json, save_rules_to_json
 
 # Also need to import agno components for mocking
 try:
@@ -32,9 +32,9 @@ except ImportError:
 
 
 @pytest.fixture
-def mock_ai_instance():
-    """Fixture for creating MockAI instance"""
-    return MockAI()
+def shadow_ai_instance():
+    """Fixture for creating ShadowAI instance"""
+    return ShadowAI()
 
 
 @pytest.fixture
@@ -85,8 +85,8 @@ def temp_yaml_file(tmp_path):
 def mock_agno_agent():
     """Mock Agno agent fixture to avoid real API calls"""
     # Mock both OpenAIChat and Agent to completely bypass actual agno calls
-    with patch("mock_ai.core.mock_ai.OpenAIChat") as mock_openai, patch(
-        "mock_ai.core.mock_ai.Agent"
+    with patch("shadow_ai.core.shadow_ai.OpenAIChat") as mock_openai, patch(
+        "shadow_ai.core.shadow_ai.Agent"
     ) as mock_agent:
 
         # Create mock OpenAIChat instance

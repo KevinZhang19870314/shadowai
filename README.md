@@ -26,7 +26,7 @@ MockAI provides flexible and easy-to-use API design, supporting various usage sc
 #### 🧠 Intelligent Understanding
 ```python
 # MockAI - One line of code, intelligent understanding of business meaning
-mock_ai.generate("company_email")  # Automatically generates company-formatted emails
+shadow_ai.generate("company_email")  # Automatically generates company-formatted emails
 
 # Traditional library - Requires manual combination of multiple APIs
 faker.internet.email(
@@ -81,7 +81,7 @@ def generate_medical_id():
 **Hybrid Usage Strategy** - Leverage the advantages of both:
 ```python
 # 1. Use MockAI to design data templates
-business_template = mock_ai.generate(complex_business_package)
+business_template = shadow_ai.generate(complex_business_package)
 
 # 2. Use traditional libraries for bulk data population  
 for i in range(1000):
@@ -105,7 +105,7 @@ for i in range(1000):
 ## 📦 Installation
 
 ```bash
-pip install mockai
+pip install shadowai
 ```
 
 ## 🚀 Quick Start
@@ -113,35 +113,35 @@ pip install mockai
 ### Basic Usage
 
 ```python
-from mock_ai import MockAI
+from shadow_ai import ShadowAI
 
-# Create MockAI instance
-mock_ai = MockAI()
+# Create ShadowAI instance
+shadow_ai = ShadowAI()
 
 # Use string directly
-result = mock_ai.generate("email")
+result = shadow_ai.generate("email")
 print(result)  # {"email": "john.doe@example.com"}
 
 # Generate multiple fields
-result = mock_ai.generate(["email", "name", "age"])
+result = shadow_ai.generate(["email", "name", "age"])
 print(result)  # {"email": "...", "name": "...", "age": ...}
 
 # Quick method
-result = mock_ai.quick("email", "name", "phone")
+result = shadow_ai.quick("email", "name", "phone")
 print(result)  # {"email": "...", "name": "...", "phone": "..."}
 ```
 
 ### Creating Custom Rules
 
 ```python
-from mock_ai import Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage
 
 # Create single rule
 email_rule = Rule(name="email")
 company_rule = Rule(name="company_name")
 
 # Generate data
-result = mock_ai.generate(email_rule)
+result = shadow_ai.generate(email_rule)
 print(result)  # {"email": "user@example.com"}
 
 # Create rule combination
@@ -156,22 +156,22 @@ user_package = RulePackage(
     rules=["username", "email", "age", "location"]
 )
 
-result = mock_ai.generate(user_package)
+result = shadow_ai.generate(user_package)
 print(result)  # Complete user information
 ```
 
 ### Using Pre-built Rules
 
 ```python
-from mock_ai.rules import email_rule, name_rule
-from mock_ai.rules.packages import person_package
+from shadow_ai.rules import email_rule, name_rule
+from shadow_ai.rules.packages import person_package
 
 # Use predefined rules
-result = mock_ai.generate(email_rule)
+result = shadow_ai.generate(email_rule)
 print(result)  # {"email": "john.doe@example.com"}
 
 # Use predefined packages
-result = mock_ai.generate(person_package)
+result = shadow_ai.generate(person_package)
 print(result)
 # {
 #   "fullname": "John Smith", 
@@ -183,7 +183,7 @@ print(result)
 ### Advanced Custom Rules
 
 ```python
-from mock_ai import Rule
+from shadow_ai import Rule
 
 # Detailed rule configuration
 custom_rule = Rule(
@@ -193,7 +193,7 @@ custom_rule = Rule(
     constraints={"type": "string", "style": "modern"}
 )
 
-result = mock_ai.generate(custom_rule)
+result = shadow_ai.generate(custom_rule)
 ```
 
 ## 📖 Documentation

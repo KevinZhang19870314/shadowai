@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-MockAI Quick Start Script
+ShadowAI Quick Start Script
 
-Helps users quickly experience MockAI functionality.
+Helps users quickly experience ShadowAI functionality.
 """
 
 import json
@@ -63,18 +63,18 @@ def demonstrate_basic_usage():
         sys.path.insert(0, lib_path)
 
     try:
-        from mock_ai import MockAI
-        from mock_ai.rules import email_rule, first_name_rule
-        from mock_ai.rules.packages import person_package
+        from shadow_ai import ShadowAI
+        from shadow_ai.rules import email_rule, first_name_rule
+        from shadow_ai.rules.packages import person_package
 
-        # Initialize MockAI
-        mock_ai = MockAI()
+        # Initialize ShadowAI
+        shadow_ai = ShadowAI()
 
         # Example 1: Generate email
         print("\n📧 Example 1: Generate email")
         print("-" * 25)
         try:
-            result = mock_ai.generate(email_rule, format_output=False)
+            result = shadow_ai.generate(email_rule, format_output=False)
             print(f"Generated email: {result}")
         except Exception as e:
             print(f"❌ Email generation failed: {e}")
@@ -83,7 +83,7 @@ def demonstrate_basic_usage():
         print("\n👤 Example 2: Generate name")
         print("-" * 25)
         try:
-            result = mock_ai.generate(first_name_rule, format_output=False)
+            result = shadow_ai.generate(first_name_rule, format_output=False)
             print(f"Generated name: {result}")
         except Exception as e:
             print(f"❌ Name generation failed: {e}")
@@ -92,10 +92,10 @@ def demonstrate_basic_usage():
         print("\n🎯 Example 3: String-based generation")
         print("-" * 35)
         try:
-            result = mock_ai.generate("phone", format_output=False)
+            result = shadow_ai.generate("phone", format_output=False)
             print(f"Generated phone: {result}")
 
-            result = mock_ai.generate("company_name", format_output=False)
+            result = shadow_ai.generate("company_name", format_output=False)
             print(f"Generated company: {result}")
         except Exception as e:
             print(f"❌ String-based generation failed: {e}")
@@ -104,7 +104,7 @@ def demonstrate_basic_usage():
         print("\n📦 Example 4: Generate using rule package")
         print("-" * 40)
         try:
-            result = mock_ai.generate(person_package, format_output=False)
+            result = shadow_ai.generate(person_package, format_output=False)
             print(f"Generated person: {result}")
         except Exception as e:
             print(f"❌ Package generation failed: {e}")
@@ -113,7 +113,7 @@ def demonstrate_basic_usage():
         print("\n🔄 Example 5: Batch generation")
         print("-" * 30)
         try:
-            result = mock_ai.generate(person_package, count=2, format_output=False)
+            result = shadow_ai.generate(person_package, count=2, format_output=False)
             print(f"Generated multiple people: {result}")
         except Exception as e:
             print(f"❌ Batch generation failed: {e}")
@@ -139,7 +139,7 @@ def show_available_rules():
         sys.path.insert(0, lib_path)
 
     try:
-        from mock_ai.rules import (
+        from shadow_ai.rules import (
             address_rule,
             age_rule,
             company_rule,
@@ -148,11 +148,11 @@ def show_available_rules():
             last_name_rule,
             phone_rule,
         )
-        from mock_ai.rules.combinations import (
+        from shadow_ai.rules.combinations import (
             full_address_combination,
             full_name_combination,
         )
-        from mock_ai.rules.packages import company_package, person_package, user_package
+        from shadow_ai.rules.packages import company_package, person_package, user_package
 
         print("\n🔧 Basic Rules:")
         rules = [
@@ -217,7 +217,7 @@ def interactive_demo():
 
 def main():
     """Main function"""
-    print("🎊 Welcome to MockAI Quick Start!")
+    print("🎊 Welcome to ShadowAI Quick Start!")
     print("=" * 40)
 
     # Check dependencies
@@ -236,7 +236,7 @@ def main():
     # Show quick help
     print("\n💡 Quick Tips:")
     print("  • Make sure you're running from the project root directory")
-    print("  • All examples use the MockAI library from lib/ directory")
+    print("  • All examples use the ShadowAI library from lib/ directory")
     print("  • Generated data may vary each time due to AI randomness")
 
     # Start interactive demo

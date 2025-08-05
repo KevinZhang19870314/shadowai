@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MockAI PyPI Publishing Script
+ShadowAI PyPI Publishing Script
 
 Automates the build, test, and publish process to PyPI.
 """
@@ -214,7 +214,7 @@ def validate_dependencies():
 
 def main():
     """Main function"""
-    parser = argparse.ArgumentParser(description="MockAI PyPI Publishing Script")
+    parser = argparse.ArgumentParser(description="ShadowAI PyPI Publishing Script")
     parser.add_argument("--version", required=True, help="Version number to publish")
     parser.add_argument("--test", action="store_true", help="Publish to Test PyPI only")
     parser.add_argument("--skip-tests", action="store_true", help="Skip running tests")
@@ -224,7 +224,7 @@ def main():
 
     args = parser.parse_args()
 
-    print("🎉 Starting MockAI publication process")
+    print("🎉 Starting ShadowAI publication process")
     print(f"📝 Target version: {args.version}")
     print(f"🎯 Target: {'Test PyPI' if args.test else 'PyPI'}")
 

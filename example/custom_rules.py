@@ -1,5 +1,5 @@
 """
-MockAI Custom Rules Examples
+ShadowAI Custom Rules Examples
 
 Demonstrates how to create and use custom rules.
 """
@@ -10,7 +10,7 @@ import sys
 # Add project root directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from mock_ai import MockAI, Rule, RuleCombination, RulePackage
+from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
 
 
 def create_basic_rules():
@@ -230,8 +230,8 @@ def demonstrate_data_generation():
     print("\n🎮 Data Generation Demo")
     print("=" * 50)
 
-    # Initialize MockAI instance
-    mock_ai = MockAI()
+    # Initialize ShadowAI instance
+    shadow_ai = ShadowAI()
 
     # Get created rules and packages
     basic_rules = create_basic_rules()
@@ -244,28 +244,28 @@ def demonstrate_data_generation():
 
     try:
         # Generate data using rules
-        result = mock_ai.generate(basic_rules[0], format_output=False)  # language_rule
+        result = shadow_ai.generate(basic_rules[0], format_output=False)  # language_rule
         print(f"Programming language: {result}")
 
-        result = mock_ai.generate(
+        result = shadow_ai.generate(
             example_rules[1], format_output=False
         )  # framework_rule
         print(f"Framework: {result}")
 
         # Generate data using combinations
-        result = mock_ai.generate(
+        result = shadow_ai.generate(
             basic_combos[0], format_output=False
         )  # tech_skill_combo
         print(f"Tech skill combination: {result}")
 
         # Generate data using packages
-        result = mock_ai.generate(
+        result = shadow_ai.generate(
             basic_packages[0], format_output=False
         )  # developer_package
         print(f"Developer information: {result}")
 
         # Batch generation
-        result = mock_ai.generate(
+        result = shadow_ai.generate(
             basic_packages[2], count=2, format_output=False
         )  # project_package
         print(f"Multiple projects: {result}")
@@ -300,7 +300,7 @@ def main():
     print("   • Rule(name='field_name')  # Auto-generate description")
     print("   • RuleCombination(name='combo', rules=['field1', 'field2'])")
     print("   • RulePackage(name='package', rules=['field1', 'field2', 'field3'])")
-    print("   • Support direct string generation: mock_ai.generate('field_name')")
+    print("   • Support direct string generation: shadow_ai.generate('field_name')")
     print("\n✅ Detailed configuration suitable for complex scenarios")
     print("✅ Flexible API design meets different needs")
 

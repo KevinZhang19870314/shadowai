@@ -1,5 +1,5 @@
 """
-MockAI Core Module
+ShadowAI Core Module
 
 Provides main data generation functionality, integrating the Agno framework.
 """
@@ -25,9 +25,9 @@ class MockDataResponse(BaseModel):
     metadata: Optional[Dict[str, Any]] = None
 
 
-class MockAI:
+class ShadowAI:
     """
-    MockAI Main Class
+    ShadowAI Main Class
 
     Provides AI-driven mock data generation functionality.
     """
@@ -36,7 +36,7 @@ class MockAI:
         self, model_id: str = "gpt-4o-mini", api_key: Optional[str] = None, **kwargs
     ):
         """
-        Initialize MockAI instance
+        Initialize ShadowAI instance
 
         Args:
             model_id: AI model ID
@@ -52,7 +52,7 @@ class MockAI:
         # Initialize Agent
         self.agent = Agent(
             model=self.model,
-            name="MockAI",
+            name="ShadowAI",
             description="AI-powered mock data generator",
         )
 
@@ -318,4 +318,4 @@ class MockAI:
         elif file_path.endswith(".yaml") or file_path.endswith(".yml"):
             return load_rules_from_yaml(file_path)
         else:
-            raise ValueError(f"Unsupported file format: {file_path}")
+            raise ValueError(f"Unsupported file format: {file_path}") 

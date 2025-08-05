@@ -1,10 +1,10 @@
 """
-MockAI setup.py for development installation
+ShadowAI setup.py for development installation
 """
 from setuptools import setup, find_packages
 
 setup(
-    name="mock-ai",
+    name="shadowai",
     version="0.1.0",
     package_dir={"": "lib"},
     packages=find_packages(where="lib"),

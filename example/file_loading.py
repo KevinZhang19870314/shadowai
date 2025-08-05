@@ -1,5 +1,5 @@
 """
-MockAI File Loading Examples
+ShadowAI File Loading Examples
 
 Demonstrates how to load rules from JSON and YAML files.
 """
@@ -14,9 +14,9 @@ load_dotenv()
 # Add project root directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from mock_ai import MockAI
-from mock_ai.rules.packages import person_package
-from mock_ai.utils.file_utils import (
+from shadow_ai import ShadowAI
+from shadow_ai.rules.packages import person_package
+from shadow_ai.utils.file_utils import (
     create_rule_template,
     load_rules_from_json,
     load_rules_from_yaml,
@@ -136,8 +136,8 @@ def demonstrate_data_generation_from_files():
     print("\n🎮 Data Generation from Files")
     print("=" * 35)
 
-    # Initialize MockAI
-    mock_ai = MockAI()
+    # Initialize ShadowAI
+    shadow_ai = ShadowAI()
 
     # Load rules from files
     output_dir = "demo_output"
@@ -148,7 +148,7 @@ def demonstrate_data_generation_from_files():
         if os.path.exists(json_path):
             json_rules = load_rules_from_json(json_path)
             print(f"\n🔧 Using JSON loaded rules:")
-            result = mock_ai.generate(json_rules, format_output=False)
+            result = shadow_ai.generate(json_rules, format_output=False)
             print(f"Generated person: {result}")
 
         # Load and use YAML rules
@@ -156,7 +156,7 @@ def demonstrate_data_generation_from_files():
         if os.path.exists(yaml_path):
             yaml_rules = load_rules_from_yaml(yaml_path)
             print(f"\n🔧 Using YAML loaded rules:")
-            result = mock_ai.generate(yaml_rules, format_output=False)
+            result = shadow_ai.generate(yaml_rules, format_output=False)
             print(f"Generated person: {result}")
 
         # Load and use sample rules
@@ -164,7 +164,7 @@ def demonstrate_data_generation_from_files():
         if os.path.exists(sample_rule_path):
             sample_rules = load_rules_from_json(sample_rule_path)
             print(f"\n🔧 Using sample rule package:")
-            result = mock_ai.generate(sample_rules, format_output=False)
+            result = shadow_ai.generate(sample_rules, format_output=False)
             print(f"Generated product: {result}")
 
     except Exception as e:

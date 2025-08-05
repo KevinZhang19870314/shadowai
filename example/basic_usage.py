@@ -1,7 +1,7 @@
 """
-MockAI Basic Usage Examples
+ShadowAI Basic Usage Examples
 
-Demonstrates how to use the MockAI library to generate various types of mock data.
+Demonstrates how to use the ShadowAI library to generate various types of mock data.
 """
 
 import os
@@ -12,10 +12,10 @@ from dotenv import load_dotenv
 # Add project root directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from mock_ai import MockAI, Rule, RuleCombination, RulePackage
-from mock_ai.rules import age_rule, email_rule, first_name_rule, last_name_rule
-from mock_ai.rules.combinations import full_name_combination
-from mock_ai.rules.packages import person_package
+from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai.rules import age_rule, email_rule, first_name_rule, last_name_rule
+from shadow_ai.rules.combinations import full_name_combination
+from shadow_ai.rules.packages import person_package
 
 load_dotenv()
 
@@ -23,11 +23,11 @@ load_dotenv()
 def main():
     """Main function demonstrating various usage patterns"""
 
-    print("🚀 MockAI Basic Usage Examples")
+    print("🚀 ShadowAI Basic Usage Examples")
     print("=" * 50)
 
-    # Initialize MockAI instance
-    mock_ai = MockAI()
+    # Initialize ShadowAI instance
+    shadow_ai = ShadowAI()
 
     # Example 1: Create single rules
     print("\n📝 Example 1: Create single rules")
@@ -38,35 +38,35 @@ def main():
     user_name_rule = Rule(name="user_name")
     age_rule_simple = Rule(name="age")
 
-    result = mock_ai.generate(email_rule_simple, format_output=False)
+    result = shadow_ai.generate(email_rule_simple, format_output=False)
     print(f"Email: {result}")
 
-    result = mock_ai.generate(user_name_rule, format_output=False)
+    result = shadow_ai.generate(user_name_rule, format_output=False)
     print(f"Username: {result}")
 
     # Example 2: Use pre-built rules
     print("\n📝 Example 2: Use pre-built rules")
     print("-" * 30)
 
-    result = mock_ai.generate(email_rule, format_output=False)
+    result = shadow_ai.generate(email_rule, format_output=False)
     print(f"Email: {result}")
 
-    result = mock_ai.generate(first_name_rule, format_output=False)
+    result = shadow_ai.generate(first_name_rule, format_output=False)
     print(f"First name: {result}")
 
     # Example 3: String-based creation
     print("\n📝 Example 3: String-based creation")
     print("-" * 30)
 
-    result = mock_ai.generate("phone", format_output=False)
+    result = shadow_ai.generate("phone", format_output=False)
     print(f"Phone number: {result}")
 
-    result = mock_ai.generate("company_name", format_output=False)
+    result = shadow_ai.generate("company_name", format_output=False)
     print(f"Company name: {result}")
 
     # Use string list
     string_fields = ["email", "name", "age"]
-    result = mock_ai.generate(string_fields, format_output=False)
+    result = shadow_ai.generate(string_fields, format_output=False)
     print(f"Field combination: {result}")
 
     # Example 4: Generate data using multiple rules
@@ -74,7 +74,7 @@ def main():
     print("-" * 30)
 
     rules = [first_name_rule, last_name_rule, age_rule, email_rule]
-    result = mock_ai.generate(rules, format_output=False)
+    result = shadow_ai.generate(rules, format_output=False)
     print(f"Multi-field data: {result}")
 
     # Example 5: Create rule combinations
@@ -85,11 +85,11 @@ def main():
     user_combo = RuleCombination(
         name="user_profile", rules=["first_name", "last_name", "email"]
     )
-    result = mock_ai.generate(user_combo, format_output=False)
+    result = shadow_ai.generate(user_combo, format_output=False)
     print(f"User combination: {result}")
 
     # Use pre-built combination
-    result = mock_ai.generate(full_name_combination, format_output=False)
+    result = shadow_ai.generate(full_name_combination, format_output=False)
     print(f"Full name combination: {result}")
 
     # Example 6: Create rule packages
@@ -100,25 +100,25 @@ def main():
     user_package = RulePackage(
         name="basic_user", rules=["username", "email", "phone", "age"]
     )
-    result = mock_ai.generate(user_package, format_output=False)
+    result = shadow_ai.generate(user_package, format_output=False)
     print(f"User package: {result}")
 
     # Use pre-built package
-    result = mock_ai.generate(person_package, format_output=False)
+    result = shadow_ai.generate(person_package, format_output=False)
     print(f"Personal information: {result}")
 
     # Example 7: Generate multiple records
     print("\n📝 Example 7: Batch generation")
     print("-" * 30)
 
-    result = mock_ai.generate(user_package, count=3, format_output=False)
+    result = shadow_ai.generate(user_package, count=3, format_output=False)
     print(f"Multiple user information: {result}")
 
     # Example 8: Use formatted output
     print("\n📝 Example 8: Formatted output")
     print("-" * 30)
 
-    response = mock_ai.generate(user_package, format_output=True)
+    response = shadow_ai.generate(user_package, format_output=True)
     print(f"Formatted response:")
     print(f"  Success: {response.success}")
     print(f"  Data: {response.data}")
@@ -130,7 +130,7 @@ def main():
 
     print("✅ Quick creation methods:")
     print("   Rule(name='email')  # Auto-generate description")
-    print("   mock_ai.generate('phone')  # Use string directly")
+    print("   shadow_ai.generate('phone')  # Use string directly")
     print("   RuleCombination(name='user', rules=['name', 'email'])")
     print("   RulePackage(name='person', rules=['name', 'age', 'email'])")
 

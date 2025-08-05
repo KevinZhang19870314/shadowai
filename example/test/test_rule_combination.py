@@ -5,7 +5,7 @@ Tests all functionality of the RuleCombination class, including creation, valida
 """
 
 import pytest
-from mock_ai import Rule, RuleCombination
+from shadow_ai import Rule, RuleCombination
 from pydantic import ValidationError
 
 

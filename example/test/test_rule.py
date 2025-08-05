@@ -5,8 +5,8 @@ Tests all functionality of the Rule class, including creation, validation, metho
 """
 
 import pytest
-from mock_ai import Rule
-from mock_ai.core.rule import RuleType
+from shadow_ai import Rule
+from shadow_ai.core.rule import RuleType
 from pydantic import ValidationError
 
 

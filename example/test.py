@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple test script for MockAI
+Simple test script for ShadowAI
 """
 
 # Add project root directory to path
@@ -9,16 +9,16 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from mock_ai import MockAI
+from shadow_ai import ShadowAI
 
 
 def main():
-    print("🚀 MockAI Basic Usage Example")
+    print("🚀 ShadowAI Basic Usage Example")
 
-    # Initialize MockAI instance
-    mock_ai = MockAI()
+    # Initialize ShadowAI instance
+    shadow_ai = ShadowAI()
 
-    result = mock_ai.generate("email", format_output=False)
+    result = shadow_ai.generate("email", format_output=False)
     print(f"Generated email: {result}")
 
 

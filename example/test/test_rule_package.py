@@ -5,7 +5,7 @@ Tests all functionality of the RulePackage class, including creation, validation
 """
 
 import pytest
-from mock_ai import Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage
 from pydantic import ValidationError
 
 

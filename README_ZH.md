@@ -26,7 +26,7 @@ MockAI 提供灵活且易用的API设计，支持从简单到复杂的各种使�
 #### 🧠 智能化理解
 ```python
 # MockAI - 一行代码，智能理解业务含义
-mock_ai.generate("company_email")  # 自动生成符合公司格式的邮箱
+shadow_ai.generate("company_email")  # 自动生成符合公司格式的邮箱
 
 # 传统库 - 需要手动组合多个API
 faker.internet.email(
@@ -80,8 +80,8 @@ def generate_medical_id():
 
 **混合使用策略** - 充分发挥两者优势：
 ```python
-# 1. 使用MockAI设计数据模板
-business_template = mock_ai.generate(complex_business_package)
+# 1. 使用ShadowAI设计数据模板
+business_template = shadow_ai.generate(complex_business_package)
 
 # 2. 使用传统库进行大量数据填充  
 for i in range(1000):
@@ -105,7 +105,7 @@ for i in range(1000):
 ## 📦 安装
 
 ```bash
-pip install mockai
+pip install shadowai
 ```
 
 ## 🚀 快速开始
@@ -113,35 +113,35 @@ pip install mockai
 ### 基本使用
 
 ```python
-from mock_ai import MockAI
+from shadow_ai import ShadowAI
 
-# 创建MockAI实例
-mock_ai = MockAI()
+# 创建ShadowAI实例
+shadow_ai = ShadowAI()
 
 # 直接使用字符串
-result = mock_ai.generate("email")
+result = shadow_ai.generate("email")
 print(result)  # {"email": "john.doe@example.com"}
 
 # 生成多个字段
-result = mock_ai.generate(["email", "name", "age"])
+result = shadow_ai.generate(["email", "name", "age"])
 print(result)  # {"email": "...", "name": "...", "age": ...}
 
 # 快速方法
-result = mock_ai.quick("email", "name", "phone")
+result = shadow_ai.quick("email", "name", "phone")
 print(result)  # {"email": "...", "name": "...", "phone": "..."}
 ```
 
 ### 创建自定义规则
 
 ```python
-from mock_ai import Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage
 
 # 创建单个规则
 email_rule = Rule(name="email")
 company_rule = Rule(name="company_name")
 
 # 生成数据
-result = mock_ai.generate(email_rule)
+result = shadow_ai.generate(email_rule)
 print(result)  # {"email": "user@example.com"}
 
 # 创建规则组合
@@ -156,22 +156,22 @@ user_package = RulePackage(
     rules=["username", "email", "age", "location"]
 )
 
-result = mock_ai.generate(user_package)
+result = shadow_ai.generate(user_package)
 print(result)  # 完整的用户信息
 ```
 
 ### 使用预构建规则
 
 ```python
-from mock_ai.rules import email_rule, name_rule
-from mock_ai.rules.packages import person_package
+from shadow_ai.rules import email_rule, name_rule
+from shadow_ai.rules.packages import person_package
 
 # 使用预定义规则
-result = mock_ai.generate(email_rule)
+result = shadow_ai.generate(email_rule)
 print(result)  # {"email": "john.doe@example.com"}
 
 # 使用预定义包
-result = mock_ai.generate(person_package)
+result = shadow_ai.generate(person_package)
 print(result)
 # {
 #   "fullname": "John Smith", 
@@ -183,7 +183,7 @@ print(result)
 ### 高级自定义规则
 
 ```python
-from mock_ai import Rule
+from shadow_ai import Rule
 
 # 详细配置规则
 custom_rule = Rule(
@@ -193,7 +193,7 @@ custom_rule = Rule(
     constraints={"type": "string", "style": "modern"}
 )
 
-result = mock_ai.generate(custom_rule)
+result = shadow_ai.generate(custom_rule)
 ```
 
 ## 📖 文档

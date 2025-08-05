@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 import yaml
-from mock_ai import Rule, RuleCombination, RulePackage
-from mock_ai.utils.file_utils import (
+from shadow_ai import Rule, RuleCombination, RulePackage
+from shadow_ai.utils.file_utils import (
     _convert_to_yaml_safe,
     load_rules_from_json,
     load_rules_from_yaml,
@@ -200,7 +200,7 @@ class TestYAMLSafeConversion:
 
     def test_convert_enum_to_yaml_safe(self):
         """Test converting enums to YAML safe format"""
-        from mock_ai.core.rule import RuleType
+        from shadow_ai.core.rule import RuleType
 
         data = {"rule_type": RuleType.RECORD}
         safe_data = _convert_to_yaml_safe(data)
@@ -209,7 +209,7 @@ class TestYAMLSafeConversion:
 
     def test_convert_nested_dict_to_yaml_safe(self):
         """Test nested dictionary conversion"""
-        from mock_ai.core.rule import RuleType
+        from shadow_ai.core.rule import RuleType
 
         data = {
             "rule": {"name": "test", "type": RuleType.COMBINATION},
@@ -223,7 +223,7 @@ class TestYAMLSafeConversion:
 
     def test_convert_list_to_yaml_safe(self):
         """Test list conversion"""
-        from mock_ai.core.rule import RuleType
+        from shadow_ai.core.rule import RuleType
 
         data = [{"type": RuleType.RECORD}, {"type": RuleType.COMBINATION}]
 
