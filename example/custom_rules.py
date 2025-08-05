@@ -10,7 +10,7 @@ import sys
 # Add project root directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage, ShadowAI
 
 
 def create_basic_rules():
@@ -244,7 +244,9 @@ def demonstrate_data_generation():
 
     try:
         # Generate data using rules
-        result = shadow_ai.generate(basic_rules[0], format_output=False)  # language_rule
+        result = shadow_ai.generate(
+            basic_rules[0], format_output=False
+        )  # language_rule
         print(f"Programming language: {result}")
 
         result = shadow_ai.generate(

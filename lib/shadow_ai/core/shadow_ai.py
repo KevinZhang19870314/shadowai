@@ -318,4 +318,4 @@ class ShadowAI:
         elif file_path.endswith(".yaml") or file_path.endswith(".yml"):
             return load_rules_from_yaml(file_path)
         else:
-            raise ValueError(f"Unsupported file format: {file_path}") 
+            raise ValueError(f"Unsupported file format: {file_path}")

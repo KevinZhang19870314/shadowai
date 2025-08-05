@@ -5,9 +5,9 @@ Tests all functionality of the Rule class, including creation, validation, metho
 """
 
 import pytest
+from pydantic import ValidationError
 from shadow_ai import Rule
 from shadow_ai.core.rule import RuleType
-from pydantic import ValidationError
 
 
 class TestRuleCreation:

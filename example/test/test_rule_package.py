@@ -5,8 +5,8 @@ Tests all functionality of the RulePackage class, including creation, validation
 """
 
 import pytest
-from shadow_ai import Rule, RuleCombination, RulePackage
 from pydantic import ValidationError
+from shadow_ai import Rule, RuleCombination, RulePackage
 
 
 class TestRulePackageCreation:

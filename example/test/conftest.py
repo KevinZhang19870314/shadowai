@@ -18,7 +18,7 @@ lib_path = project_root / "lib"
 sys.path.insert(0, str(lib_path))
 
 # Import ShadowAI components
-from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage, ShadowAI
 from shadow_ai.utils.file_utils import load_rules_from_json, save_rules_to_json
 
 # Also need to import agno components for mocking

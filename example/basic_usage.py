@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 # Add project root directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
 
-from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage, ShadowAI
 from shadow_ai.rules import age_rule, email_rule, first_name_rule, last_name_rule
 from shadow_ai.rules.combinations import full_name_combination
 from shadow_ai.rules.packages import person_package

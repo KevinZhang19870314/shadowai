@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shadowai"
-version = "0.1.1"
+version = "0.1.2"
 description = "AI-powered mock data generation library with flexible rule engine"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -57,7 +57,7 @@ Repository = "https://github.com/KevinZhang19870314/shadowai"
 
 [tool.setuptools.packages.find]
 where = ["lib"]
-include = ["shadowai*"]
+include = ["shadow_ai*"]
 
 [tool.setuptools.package-dir]
 "" = "lib"
@@ -71,7 +71,7 @@ profile = "black"
 multi_line_output = 3
 
 [tool.mypy]
-python_version = "0.1.1"
+python_version = "0.1.2"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

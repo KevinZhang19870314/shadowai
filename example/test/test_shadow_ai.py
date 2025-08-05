@@ -7,7 +7,7 @@ Tests all functionality of the ShadowAI class, including data generation, string
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-from shadow_ai import ShadowAI, Rule, RuleCombination, RulePackage
+from shadow_ai import Rule, RuleCombination, RulePackage, ShadowAI
 from shadow_ai.core.shadow_ai import MockDataResponse
 
 
@@ -84,9 +84,9 @@ class TestShadowAIRuleInputs:
 
         shadow_ai = ShadowAI()
         rule_combo = RuleCombination(
-            name="full_name", 
+            name="full_name",
             description="Full name combination",
-            rules=["first_name", "last_name"]
+            rules=["first_name", "last_name"],
         )
         result = shadow_ai.generate(rule_combo)
 
@@ -100,7 +100,9 @@ class TestShadowAIRuleInputs:
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
-        rule_package = RulePackage(name="user", description="User profile", rules=["name", "age"])
+        rule_package = RulePackage(
+            name="user", description="User profile", rules=["name", "age"]
+        )
         result = shadow_ai.generate(rule_package)
 
         assert isinstance(result, dict)
@@ -146,13 +148,15 @@ class TestShadowAIBatchGeneration:
     def test_batch_generation_list_rules(self, mock_agent_class, mock_api_key):
         """Test batch generation with list of rules"""
         mock_agent = Mock()
-        mock_agent.run.return_value.content = '{"name": "John", "email": "john@example.com"}'
+        mock_agent.run.return_value.content = (
+            '{"name": "John", "email": "john@example.com"}'
+        )
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
         rules = [
             Rule(name="name", description="Person name"),
-            Rule(name="email", description="Email address")
+            Rule(name="email", description="Email address"),
         ]
         result = shadow_ai.generate(rules)
 
@@ -163,7 +167,9 @@ class TestShadowAIBatchGeneration:
     def test_batch_generation_mixed_rules(self, mock_agent_class, mock_api_key):
         """Test batch generation with mixed rule types"""
         mock_agent = Mock()
-        mock_agent.run.return_value.content = '{"name": "John", "email": "john@example.com"}'
+        mock_agent.run.return_value.content = (
+            '{"name": "John", "email": "john@example.com"}'
+        )
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
@@ -192,7 +198,9 @@ class TestShadowAIQuickMethod:
     def test_quick_method_multiple_fields(self, mock_agent_class, mock_api_key):
         """Test quick method with multiple fields"""
         mock_agent = Mock()
-        mock_agent.run.return_value.content = '{"name": "John", "age": 30, "email": "john@example.com"}'
+        mock_agent.run.return_value.content = (
+            '{"name": "John", "age": 30, "email": "john@example.com"}'
+        )
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
@@ -212,7 +220,7 @@ class TestShadowAIErrorHandling:
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
-        
+
         with pytest.raises(ValueError, match="No valid JSON found in response"):
             shadow_ai.generate("name")
 
@@ -224,7 +232,7 @@ class TestShadowAIErrorHandling:
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
-        
+
         with pytest.raises(ValueError, match="No valid JSON found in response"):
             shadow_ai.generate("name")
 
@@ -236,7 +244,7 @@ class TestShadowAIErrorHandling:
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
-        
+
         with pytest.raises(Exception, match="API Error"):
             shadow_ai.generate("name")
 
@@ -244,7 +252,7 @@ class TestShadowAIErrorHandling:
     def test_unsupported_rule_type(self, mock_agent_class, mock_api_key):
         """Test unsupported rule type error"""
         shadow_ai = ShadowAI()
-        
+
         with pytest.raises(ValueError, match="Unsupported rules type"):
             shadow_ai.generate(123)  # Invalid type
 
@@ -288,7 +296,7 @@ class TestShadowAIPromptBuilding:
         """Test building prompt with single rule"""
         rule = Rule(name="name", description="Person name")
         prompt = shadow_ai_instance._build_prompt([rule], 1)
-        
+
         assert "1 record(s) of mock data with the following fields:" in prompt
         assert "name: Person name" in prompt
         assert "FLAT JSON format" in prompt
@@ -297,10 +305,10 @@ class TestShadowAIPromptBuilding:
         """Test building prompt with multiple rules"""
         rules = [
             Rule(name="name", description="Person name"),
-            Rule(name="email", description="Email address")
+            Rule(name="email", description="Email address"),
         ]
         prompt = shadow_ai_instance._build_prompt(rules, 2)
-        
+
         assert "2 record(s) of mock data with the following fields:" in prompt
         assert "name: Person name" in prompt
         assert "email: Email address" in prompt
@@ -310,10 +318,10 @@ class TestShadowAIPromptBuilding:
         rule_combo = RuleCombination(
             name="full_name",
             description="Full name combination",
-            rules=["first_name", "last_name"]
+            rules=["first_name", "last_name"],
         )
         prompt = shadow_ai_instance._build_prompt([rule_combo], 1)
-        
+
         assert "Rule Name: full_name" in prompt
         assert "Description: Full name combination" in prompt
-        assert "Type: combination" in prompt 
+        assert "Type: combination" in prompt

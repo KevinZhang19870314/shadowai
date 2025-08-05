@@ -152,7 +152,11 @@ def show_available_rules():
             full_address_combination,
             full_name_combination,
         )
-        from shadow_ai.rules.packages import company_package, person_package, user_package
+        from shadow_ai.rules.packages import (
+            company_package,
+            person_package,
+            user_package,
+        )
 
         print("\n🔧 Basic Rules:")
         rules = [
