@@ -1,0 +1,15 @@
+{
+  "name": "demo_field",
+  "description": "Demo field for quickstart",
+  "rule_type": "record",
+  "examples": [
+    "example1",
+    "example2"
+  ],
+  "constraints": {
+    "type": "string",
+    "min_length": 1,
+    "max_length": 100
+  },
+  "metadata": {}
+}

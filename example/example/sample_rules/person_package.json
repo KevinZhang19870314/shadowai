@@ -1,0 +1,131 @@
+{
+  "name": "person",
+  "description": "Complete person information including name, contact, and demographics",
+  "rules": [
+    {
+      "name": "full_name",
+      "description": "Combine first name and last name into a full name",
+      "rules": [
+        {
+          "name": "first_name",
+          "description": "Generate a person's first name",
+          "rule_type": "record",
+          "metadata": null,
+          "examples": [
+            "John",
+            "Mary",
+            "David",
+            "Sarah",
+            "Michael"
+          ],
+          "constraints": {
+            "gender_neutral": false,
+            "cultural_diversity": true
+          }
+        },
+        {
+          "name": "last_name",
+          "description": "Generate a person's last name",
+          "rule_type": "record",
+          "metadata": null,
+          "examples": [
+            "Smith",
+            "Johnson",
+            "Williams",
+            "Brown",
+            "Jones"
+          ],
+          "constraints": {
+            "cultural_diversity": true
+          }
+        }
+      ],
+      "combination_logic": "and",
+      "rule_type": "combination",
+      "metadata": {
+        "format": "first_name last_name",
+        "example": "John Smith"
+      }
+    },
+    {
+      "name": "age",
+      "description": "Generate a person's age",
+      "rule_type": "record",
+      "metadata": null,
+      "examples": [
+        25,
+        30,
+        45,
+        22,
+        67
+      ],
+      "constraints": {
+        "min": 18,
+        "max": 80,
+        "type": "integer"
+      }
+    },
+    {
+      "name": "email",
+      "description": "Generate a realistic email address",
+      "rule_type": "record",
+      "metadata": null,
+      "examples": [
+        "john.doe@example.com",
+        "user123@gmail.com",
+        "business@company.org"
+      ],
+      "constraints": {
+        "format": "valid_email",
+        "domain_variety": true
+      }
+    },
+    {
+      "name": "phone",
+      "description": "Generate a phone number",
+      "rule_type": "record",
+      "metadata": null,
+      "examples": [
+        "+1-555-123-4567",
+        "(555) 987-6543",
+        "555.111.2222"
+      ],
+      "constraints": {
+        "format": "international_or_local",
+        "valid": true
+      }
+    },
+    {
+      "name": "address",
+      "description": "Generate a street address",
+      "rule_type": "record",
+      "metadata": null,
+      "examples": [
+        "123 Main St",
+        "456 Oak Avenue",
+        "789 Elm Drive"
+      ],
+      "constraints": {
+        "include_number": true,
+        "realistic": true
+      }
+    }
+  ],
+  "rule_type": "package",
+  "metadata": {
+    "use_cases": [
+      "user_profiles",
+      "contact_lists",
+      "customer_data"
+    ],
+    "fields": [
+      "full_name",
+      "age",
+      "email",
+      "phone",
+      "address"
+    ]
+  },
+  "category": "personal",
+  "version": "1.0.0"
+}

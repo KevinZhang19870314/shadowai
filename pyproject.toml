@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mock-ai"
+version = "0.1.1"
+description = "AI-powered mock data generation library with flexible rule engine"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "MockAI Team", email = "team@mock-ai.com"}
+]
+keywords = ["ai", "mock", "data", "generation", "testing", "agno"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "agno>=1.7.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "typing-extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+openai = ["agno[openai]"]
+anthropic = ["agno[anthropic]"]
+all = ["agno[openai,anthropic]"]
+
+[project.urls]
+Homepage = "https://github.com/mock-ai/mock-ai"
+Documentation = "https://mock-ai.readthedocs.io"
+Repository = "https://github.com/mock-ai/mock-ai"
+"Bug Tracker" = "https://github.com/mock-ai/mock-ai/issues"
+
+[tool.setuptools.packages.find]
+where = ["lib"]
+include = ["mock_ai*"]
+
+[tool.setuptools.package-dir]
+"" = "lib"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "0.1.1"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"] 

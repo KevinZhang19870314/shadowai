@@ -1,0 +1,43 @@
+[
+  {
+    "name": "product_name",
+    "description": "Generate a creative product name",
+    "rule_type": "record",
+    "examples": [
+      "Super Widget",
+      "Magic Tool",
+      "Smart Device"
+    ],
+    "constraints": {
+      "length": "10-50",
+      "creative": true
+    },
+    "metadata": {}
+  },
+  {
+    "name": "full_product_info",
+    "description": "Combine product name with category",
+    "rules": [
+      "product_name",
+      "category"
+    ],
+    "combination_logic": "and",
+    "rule_type": "combination",
+    "metadata": {}
+  },
+  {
+    "name": "ecommerce_product",
+    "description": "Complete ecommerce product information",
+    "rules": [
+      "product_name",
+      "description",
+      "price",
+      "category",
+      "brand"
+    ],
+    "rule_type": "package",
+    "category": "general",
+    "version": "1.0.0",
+    "metadata": {}
+  }
+]

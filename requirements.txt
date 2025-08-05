@@ -1,0 +1,9 @@
+# MockAI Core Dependencies
+agno>=1.7.0
+pydantic>=2.0.0
+pyyaml>=6.0
+typing-extensions>=4.0.0
+
+# Optional AI Provider Dependencies
+# openai>=1.0.0  # For OpenAI models
+# anthropic>=0.8.0  # For Anthropic models 

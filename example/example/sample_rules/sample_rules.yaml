@@ -1,0 +1,31 @@
+- constraints:
+    creative: true
+    length: 10-50
+  description: Generate a creative product name
+  examples:
+  - Super Widget
+  - Magic Tool
+  - Smart Device
+  metadata: {}
+  name: product_name
+  rule_type: record
+- combination_logic: and
+  description: Combine product name with category
+  metadata: {}
+  name: full_product_info
+  rule_type: combination
+  rules:
+  - product_name
+  - category
+- category: general
+  description: Complete ecommerce product information
+  metadata: {}
+  name: ecommerce_product
+  rule_type: package
+  rules:
+  - product_name
+  - description
+  - price
+  - category
+  - brand
+  version: 1.0.0

@@ -1,0 +1,97 @@
+category: personal
+description: Complete person information including name, contact, and demographics
+metadata:
+  fields:
+  - full_name
+  - age
+  - email
+  - phone
+  - address
+  use_cases:
+  - user_profiles
+  - contact_lists
+  - customer_data
+name: person
+rule_type: package
+rules:
+- combination_logic: and
+  description: Combine first name and last name into a full name
+  metadata:
+    example: John Smith
+    format: first_name last_name
+  name: full_name
+  rule_type: combination
+  rules:
+  - constraints:
+      cultural_diversity: true
+      gender_neutral: false
+    description: Generate a person's first name
+    examples:
+    - John
+    - Mary
+    - David
+    - Sarah
+    - Michael
+    metadata: null
+    name: first_name
+    rule_type: record
+  - constraints:
+      cultural_diversity: true
+    description: Generate a person's last name
+    examples:
+    - Smith
+    - Johnson
+    - Williams
+    - Brown
+    - Jones
+    metadata: null
+    name: last_name
+    rule_type: record
+- constraints:
+    max: 80
+    min: 18
+    type: integer
+  description: Generate a person's age
+  examples:
+  - 25
+  - 30
+  - 45
+  - 22
+  - 67
+  metadata: null
+  name: age
+  rule_type: record
+- constraints:
+    domain_variety: true
+    format: valid_email
+  description: Generate a realistic email address
+  examples:
+  - john.doe@example.com
+  - user123@gmail.com
+  - business@company.org
+  metadata: null
+  name: email
+  rule_type: record
+- constraints:
+    format: international_or_local
+    valid: true
+  description: Generate a phone number
+  examples:
+  - +1-555-123-4567
+  - (555) 987-6543
+  - 555.111.2222
+  metadata: null
+  name: phone
+  rule_type: record
+- constraints:
+    include_number: true
+    realistic: true
+  description: Generate a street address
+  examples:
+  - 123 Main St
+  - 456 Oak Avenue
+  - 789 Elm Drive
+  metadata: null
+  name: address
+  rule_type: record
+version: 1.0.0
