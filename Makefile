@@ -1,11 +1,11 @@
-# MockAI Makefile
+# ShadowAI Makefile
 # Simplify common development, testing and publishing operations
 
 .PHONY: help install install-dev test lint format clean build publish quickstart example
 
 # Default target
 help: ## Show help information
-	@echo "MockAI Project Common Commands:"
+	@echo "ShadowAI Project Common Commands:"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
@@ -32,7 +32,7 @@ test: ## Run tests
 	python -m pytest tests/ -v
 
 test-cov: ## Run tests and generate coverage report
-	python -m pytest tests/ --cov=mock_ai --cov-report=html --cov-report=term
+	python -m pytest tests/ --cov=shadowai --cov-report=html --cov-report=term
 
 # Cleanup
 clean: ## Clean build files
@@ -99,7 +99,7 @@ all: clean format lint test build check ## Run complete CI workflow
 
 # Project information
 info: ## Show project information
-	@echo "MockAI - AI-driven Mock data generation library"
+	@echo "ShadowAI - AI-driven Mock data generation library"
 	@echo "Version: $(shell make version)"
 	@echo "Python: $(shell python --version)"
 	@echo "Dependency check:"

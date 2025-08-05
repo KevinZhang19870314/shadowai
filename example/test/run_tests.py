@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MockAI Test Runner Script
+ShadowAI Test Runner Script
 
 Provides convenient test running interface with support for multiple test modes.
 """
@@ -28,7 +28,7 @@ def run_command(cmd, description):
 
 def main():
     """Main function"""
-    parser = argparse.ArgumentParser(description="MockAI Test Runner")
+    parser = argparse.ArgumentParser(description="ShadowAI Test Runner")
     parser.add_argument(
         "--mode",
         choices=["all", "unit", "integration", "coverage", "specific"],
@@ -43,7 +43,7 @@ def main():
 
     args = parser.parse_args()
 
-    print("🧪 MockAI Test Runner")
+    print("🧪 ShadowAI Test Runner")
     print("=" * 50)
 
     # Base pytest command
@@ -80,7 +80,7 @@ def main():
     elif args.mode == "coverage":
         # Generate coverage report
         cmd = base_cmd + [
-            "--cov=mock_ai",
+            "--cov=shadowai",
             "--cov-report=html",
             "--cov-report=term-missing",
             ".",
@@ -95,7 +95,7 @@ def main():
     # If coverage option is specified, run additional coverage
     if args.coverage and args.mode != "coverage":
         print("\n" + "=" * 50)
-        cmd = base_cmd + ["--cov=mock_ai", "--cov-report=term-missing", "."]
+        cmd = base_cmd + ["--cov=shadowai", "--cov-report=term-missing", "."]
         run_command(cmd, "Generate coverage report")
 
     # Display results
@@ -112,7 +112,7 @@ def show_help():
     """Display help information"""
     print(
         """
-🧪 MockAI Test Runner Usage Guide
+🧪 ShadowAI Test Runner Usage Guide
 
 Basic usage:
   python run_tests.py                    # Run all tests
@@ -130,7 +130,7 @@ Options:
 Examples:
   python run_tests.py --verbose                 # Run all tests in verbose mode
   python run_tests.py --mode unit --coverage    # Run unit tests and generate coverage
-  python run_tests.py --mode specific --file test_mock_ai.py  # Run MockAI tests only
+  python run_tests.py --mode specific --file test_shadowai.py  # Run ShadowAI tests only
 """
     )
 

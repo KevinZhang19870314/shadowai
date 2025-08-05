@@ -1,18 +1,18 @@
-# MockAI
+# ShadowAI
 
 🚀 一个基于AI的智能Mock数据生成库
 
-MockAI是一个强大的Python库，使用AI技术生成高质量的模拟数据。通过灵活的规则引擎，您可以轻松生成结构化的JSON数据。
+ShadowAI是一个强大的Python库，使用AI技术生成高质量的模拟数据。通过灵活的规则引擎，您可以轻松生成结构化的JSON数据。
 
 ## 🎯 设计理念
 
-MockAI 提供灵活且易用的API设计，支持从简单到复杂的各种使用场景，让用户能够快速上手同时保持强大的定制能力。
+ShadowAI 提供灵活且易用的API设计，支持从简单到复杂的各种使用场景，让用户能够快速上手同时保持强大的定制能力。
 
 ## 🆚 与传统Mock库的比较
 
 ### 核心差异
 
-| 特性 | MockAI | 传统Mock库 (如 faker.js) |
+| 特性 | ShadowAI | 传统Mock库 (如 faker.js) |
 |------|--------|------------------------|
 | **生成方式** | AI智能生成 | 预定义算法 |
 | **配置复杂度** | 极简（描述即可） | 中等（需要组合API） |
@@ -21,11 +21,11 @@ MockAI 提供灵活且易用的API设计，支持从简单到复杂的各种使�
 | **生成速度** | 慢（AI调用） | 极快（本地计算） |
 | **扩展能力** | 高（AI适应） | 中（需要开发） |
 
-### MockAI的独特优势
+### ShadowAI的独特优势
 
 #### 🧠 智能化理解
 ```python
-# MockAI - 一行代码，智能理解业务含义
+# ShadowAI - 一行代码，智能理解业务含义
 shadow_ai.generate("company_email")  # 自动生成符合公司格式的邮箱
 
 # 传统库 - 需要手动组合多个API
@@ -38,7 +38,7 @@ faker.internet.email(
 
 #### 🎯 业务场景驱动
 ```python
-# MockAI - 业务规则包，确保数据逻辑一致性
+# ShadowAI - 业务规则包，确保数据逻辑一致性
 developer_profile = RulePackage(
     name="senior_developer",
     rules=["name", "email", "programming_language", "years_experience", "github_username"]
@@ -48,7 +48,7 @@ developer_profile = RulePackage(
 
 #### 🔧 极简配置
 ```python
-# MockAI - 描述性配置
+# ShadowAI - 描述性配置
 Rule(
     name="medical_record_id", 
     description="Generate HIPAA-compliant patient ID",
@@ -62,7 +62,7 @@ def generate_medical_id():
 
 ### 适用场景选择
 
-#### ✅ 推荐使用MockAI的场景
+#### ✅ 推荐使用ShadowAI的场景
 - **复杂业务测试**: 需要数据间逻辑关联
 - **原型演示**: 需要真实感强的示例数据  
 - **行业特定数据**: 医疗、金融等专业领域
@@ -89,7 +89,7 @@ for i in range(1000):
 ```
 
 **选择指南**：
-- 🎯 追求**数据质量**和**业务相关性** → 选择 **MockAI**
+- 🎯 追求**数据质量**和**业务相关性** → 选择 **ShadowAI**
 - ⚡ 追求**生成速度**和**简单性** → 选择 **传统Mock库**
 - 🔄 两者结合使用 → 获得**最佳开发体验**
 

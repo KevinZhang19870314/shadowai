@@ -65,7 +65,7 @@ def update_version(new_version):
             f.write(content)
 
         # Update __init__.py
-        init_file = "lib/mock_ai/__init__.py"
+        init_file = "lib/shadowai/__init__.py"
         if os.path.exists(init_file):
             with open(init_file, "r", encoding="utf-8") as f:
                 content = f.read()
@@ -282,7 +282,7 @@ def main():
     if args.test:
         print("\n📋 Next steps:")
         print(
-            f"1. Test installation: pip install -i https://test.pypi.org/simple/ mock-ai=={args.version}"
+            f"1. Test installation: pip install -i https://test.pypi.org/simple/ shadowai=={args.version}"
         )
         print("2. Test functionality")
         print("3. If everything works, run without --test flag")

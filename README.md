@@ -1,18 +1,18 @@
-# MockAI
+# ShadowAI
 
 🚀 An AI-powered intelligent mock data generation library
 
-MockAI is a powerful Python library that uses AI technology to generate high-quality simulated data. Through a flexible rule engine, you can easily generate structured JSON data.
+ShadowAI is a powerful Python library that uses AI technology to generate high-quality simulated data. Through a flexible rule engine, you can easily generate structured JSON data.
 
 ## 🎯 Design Philosophy
 
-MockAI provides flexible and easy-to-use API design, supporting various usage scenarios from simple to complex, allowing users to get started quickly while maintaining powerful customization capabilities.
+ShadowAI provides flexible and easy-to-use API design, supporting various usage scenarios from simple to complex, allowing users to get started quickly while maintaining powerful customization capabilities.
 
 ## 🆚 Comparison with Traditional Mock Libraries
 
 ### Core Differences
 
-| Feature | MockAI | Traditional Mock Libraries (like faker.js) |
+| Feature | ShadowAI | Traditional Mock Libraries (like faker.js) |
 |---------|--------|---------------------------------------------|
 | **Generation Method** | AI-powered intelligent generation | Predefined algorithms |
 | **Configuration Complexity** | Minimal (description-based) | Medium (requires API combination) |
@@ -21,11 +21,11 @@ MockAI provides flexible and easy-to-use API design, supporting various usage sc
 | **Generation Speed** | Slow (AI calls) | Very fast (local computation) |
 | **Extensibility** | High (AI adaptation) | Medium (requires development) |
 
-### MockAI's Unique Advantages
+### ShadowAI's Unique Advantages
 
 #### 🧠 Intelligent Understanding
 ```python
-# MockAI - One line of code, intelligent understanding of business meaning
+# ShadowAI - One line of code, intelligent understanding of business meaning
 shadow_ai.generate("company_email")  # Automatically generates company-formatted emails
 
 # Traditional library - Requires manual combination of multiple APIs
@@ -38,7 +38,7 @@ faker.internet.email(
 
 #### 🎯 Business Scenario Driven
 ```python
-# MockAI - Business rule packages ensure data logical consistency
+# ShadowAI - Business rule packages ensure data logical consistency
 developer_profile = RulePackage(
     name="senior_developer",
     rules=["name", "email", "programming_language", "years_experience", "github_username"]
@@ -48,7 +48,7 @@ developer_profile = RulePackage(
 
 #### 🔧 Minimal Configuration
 ```python
-# MockAI - Descriptive configuration
+# ShadowAI - Descriptive configuration
 Rule(
     name="medical_record_id", 
     description="Generate HIPAA-compliant patient ID",
@@ -62,7 +62,7 @@ def generate_medical_id():
 
 ### Use Case Selection
 
-#### ✅ Recommended MockAI Scenarios
+#### ✅ Recommended ShadowAI Scenarios
 - **Complex business testing**: Requires logical relationships between data
 - **Prototype demonstrations**: Needs highly realistic sample data  
 - **Industry-specific data**: Medical, financial, and other professional domains
@@ -80,7 +80,7 @@ def generate_medical_id():
 
 **Hybrid Usage Strategy** - Leverage the advantages of both:
 ```python
-# 1. Use MockAI to design data templates
+# 1. Use ShadowAI to design data templates
 business_template = shadow_ai.generate(complex_business_package)
 
 # 2. Use traditional libraries for bulk data population  
@@ -89,7 +89,7 @@ for i in range(1000):
 ```
 
 **Selection Guide**:
-- 🎯 Pursue **data quality** and **business relevance** → Choose **MockAI**
+- 🎯 Pursue **data quality** and **business relevance** → Choose **ShadowAI**
 - ⚡ Pursue **generation speed** and **simplicity** → Choose **Traditional Mock Libraries**
 - 🔄 Combine both → Get **best development experience**
 

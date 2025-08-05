@@ -1,6 +1,6 @@
-# MockAI Quick Start Guide
+# ShadowAI Quick Start Guide
 
-🚀 Welcome to MockAI! This is an AI-powered intelligent mock data generation library.
+🚀 Welcome to ShadowAI! This is an AI-powered intelligent mock data generation library.
 
 ## 📦 Installation
 
@@ -14,8 +14,8 @@ pip install agno pydantic pyyaml typing-extensions
 
 ```bash
 # Clone the project
-git clone https://github.com/your-username/mock-ai.git
-cd mock-ai
+git clone https://github.com/your-username/shadowai.git
+cd shadowai
 
 # Install dependencies
 pip install -r requirements.txt
@@ -26,7 +26,7 @@ pip install -r requirements-dev.txt
 
 ## 🔑 Setting Up API Keys
 
-MockAI requires AI services to generate data. Please set one of the following environment variables:
+ShadowAI requires AI services to generate data. Please set one of the following environment variables:
 
 ```bash
 # OpenAI
@@ -49,28 +49,28 @@ python scripts/quickstart.py
 ### 1. Simple Example
 
 ```python
-from mock_ai import MockAI
-from mock_ai.rules import email_rule, first_name_rule
+from shadowai import ShadowAI
+from shadowai.rules import email_rule, first_name_rule
 
-# Create MockAI instance
-mock_ai = MockAI()
+# Create ShadowAI instance
+shadowai = ShadowAI()
 
 # Generate email
-email = mock_ai.generate(email_rule, format_output=False)
+email = shadowai.generate(email_rule, format_output=False)
 print(f"Email: {email}")
 
 # Generate name
-name = mock_ai.generate(first_name_rule, format_output=False)
+name = shadowai.generate(first_name_rule, format_output=False)
 print(f"Name: {name}")
 ```
 
 ### 2. Using Rule Packages
 
 ```python
-from mock_ai.rules.packages import person_package
+from shadowai.rules.packages import person_package
 
 # Generate complete personal information
-person = mock_ai.generate(person_package, format_output=False)
+person = shadowai.generate(person_package, format_output=False)
 print(person)
 # Output: {"full_name": "John Smith", "age": 30, "email": "john@example.com", ...}
 ```
@@ -79,7 +79,7 @@ print(person)
 
 ```python
 # Generate multiple records
-people = mock_ai.generate(person_package, count=5, format_output=False)
+people = shadowai.generate(person_package, count=5, format_output=False)
 for person in people:
     print(person["full_name"])
 ```
@@ -89,7 +89,7 @@ for person in people:
 ### Creating Single Rules
 
 ```python
-from mock_ai import Rule
+from shadowai import Rule
 
 # Create custom rule
 product_rule = Rule(
@@ -100,13 +100,13 @@ product_rule = Rule(
 )
 
 # Use custom rule
-result = mock_ai.generate(product_rule, format_output=False)
+result = shadowai.generate(product_rule, format_output=False)
 ```
 
 ### Creating Rule Combinations
 
 ```python
-from mock_ai import RuleCombination
+from shadowai import RuleCombination
 
 # Create rule combination
 tech_skill = RuleCombination(
@@ -120,7 +120,7 @@ tech_skill = RuleCombination(
 ### Creating Rule Packages
 
 ```python
-from mock_ai import RulePackage
+from shadowai import RulePackage
 
 # Create rule package
 developer_package = RulePackage(
@@ -141,7 +141,7 @@ developer_package = RulePackage(
 ### Saving Rules to Files
 
 ```python
-from mock_ai.utils.file_utils import save_rules_to_json, save_rules_to_yaml
+from shadowai.utils.file_utils import save_rules_to_json, save_rules_to_yaml
 
 # Save as JSON
 save_rules_to_json(person_package, "rules/person.json")
@@ -153,11 +153,11 @@ save_rules_to_yaml(person_package, "rules/person.yaml")
 ### Loading Rules from Files
 
 ```python
-from mock_ai.utils.file_utils import load_rules_from_json
+from shadowai.utils.file_utils import load_rules_from_json
 
 # Load from file
 rules = load_rules_from_json("rules/person.json")
-result = mock_ai.generate(rules, format_output=False)
+result = shadowai.generate(rules, format_output=False)
 ```
 
 ## 🛠️ Development Tools
@@ -205,7 +205,7 @@ python example/file_loading.py
 
 ## 📚 Built-in Rules
 
-MockAI provides rich built-in rules:
+ShadowAI provides rich built-in rules:
 
 ### Basic Rules
 
@@ -247,18 +247,18 @@ python scripts/publish.py --version 0.1.1
 
 ```python
 # Use different models
-mock_ai = MockAI(model_id="gpt-4")
+shadowai = ShadowAI(model_id="gpt-4")
 
 # Use Anthropic models
 from agno.models.anthropic import Claude
-mock_ai = MockAI(model=Claude(id="claude-3-sonnet"))
+shadowai = ShadowAI(model=Claude(id="claude-3-sonnet"))
 ```
 
 ### Q: How to handle generation errors?
 
 ```python
 # Use formatted output to get error information
-response = mock_ai.generate(rule, format_output=True)
+response = shadowai.generate(rule, format_output=True)
 if not response.success:
     print(f"Generation failed: {response.error}")
 ```
@@ -290,4 +290,4 @@ MIT License - see [LICENSE](LICENSE) file.
 
 ---
 
-🎉 Now you've mastered the basic usage of MockAI! Start creating your own intelligent mock data! 
+🎉 Now you've mastered the basic usage of ShadowAI! Start creating your own intelligent mock data! 

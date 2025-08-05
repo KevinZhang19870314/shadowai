@@ -11,7 +11,7 @@ from .core.rule_package import RulePackage
 
 __version__ = "0.1.1"
 __author__ = "ShadowAI Team"
-__email__ = "team@mock-ai.com"
+__email__ = "team@shadowai.com"
 
 __all__ = [
     "ShadowAI",

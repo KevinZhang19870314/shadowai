@@ -206,7 +206,7 @@ def demonstrate_file_templates():
 def main():
     """Main function demonstrating file operations"""
 
-    print("📁 MockAI File Loading Examples")
+    print("📁 ShadowAI File Loading Examples")
     print("=" * 50)
     print("Shows how to save and load rules from JSON and YAML files")
 

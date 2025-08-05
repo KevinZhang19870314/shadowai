@@ -278,7 +278,7 @@ def demonstrate_data_generation():
 def main():
     """Main function demonstrating custom rule creation"""
 
-    print("🎨 MockAI Custom Rules Examples")
+    print("🎨 ShadowAI Custom Rules Examples")
     print("=" * 50)
     print("Shows how to create and use custom rules, combinations and packages")
 

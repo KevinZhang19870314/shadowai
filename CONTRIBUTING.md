@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for your interest in the MockAI project! We welcome all forms of contributions.
+Thank you for your interest in the ShadowAI project! We welcome all forms of contributions.
 
 ## 🤝 How to Contribute
 
@@ -91,7 +91,7 @@ python -m pytest tests/
 python -m pytest tests/test_rule.py
 
 # Run tests with coverage report
-python -m pytest tests/ --cov=mock_ai --cov-report=html
+python -m pytest tests/ --cov=shadowai --cov-report=html
 ```
 
 ### Writing Tests

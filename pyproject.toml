@@ -57,7 +57,7 @@ Repository = "https://github.com/KevinZhang19870314/shadowai"
 
 [tool.setuptools.packages.find]
 where = ["lib"]
-include = ["mock_ai*"]
+include = ["shadowai*"]
 
 [tool.setuptools.package-dir]
 "" = "lib"

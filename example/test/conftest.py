@@ -12,7 +12,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-# Add lib directory to Python path for importing mock_ai
+# Add lib directory to Python path for importing shadowai
 project_root = Path(__file__).parent.parent.parent
 lib_path = project_root / "lib"
 sys.path.insert(0, str(lib_path))
