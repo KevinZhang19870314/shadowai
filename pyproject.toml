@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mock-ai"
+name = "mockai"
 version = "0.1.1"
 description = "AI-powered mock data generation library with flexible rule engine"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "MockAI Team", email = "team@mock-ai.com"}
+    {name = "Kevin Zhang", email = "kevinzhang19870314@gmail.com"}
 ]
 keywords = ["ai", "mock", "data", "generation", "testing", "agno"]
 classifiers = [
@@ -50,10 +50,10 @@ anthropic = ["agno[anthropic]"]
 all = ["agno[openai,anthropic]"]
 
 [project.urls]
-Homepage = "https://github.com/mock-ai/mock-ai"
-Documentation = "https://mock-ai.readthedocs.io"
-Repository = "https://github.com/mock-ai/mock-ai"
-"Bug Tracker" = "https://github.com/mock-ai/mock-ai/issues"
+Homepage = "https://github.com/kevinzhang19870314/mockai"
+Documentation = "https://github.com/kevinzhang19870314/mockai#readme"
+Repository = "https://github.com/kevinzhang19870314/mockai"
+"Bug Tracker" = "https://github.com/kevinzhang19870314/mockai/issues"
 
 [tool.setuptools.packages.find]
 where = ["lib"]

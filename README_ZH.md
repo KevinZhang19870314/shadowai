@@ -105,7 +105,7 @@ for i in range(1000):
 ## 📦 安装
 
 ```bash
-pip install mock-ai
+pip install mockai
 ```
 
 ## 🚀 快速开始
