@@ -46,31 +46,58 @@ jobs:
         VERSION=${GITHUB_REF#refs/tags/v}
         echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
         
-        # Create release notes
-        cat > release_notes.md << 'EOF'
-        ## 🚀 ShadowAI v$VERSION
+        # Function to extract changelog section for a specific version
+        extract_changelog_section() {
+          local version=$1
+          local in_section=false
+          local content=""
+          
+          while IFS= read -r line; do
+            # Check if we're starting the target version section
+            if [[ $line =~ ^\#\#[[:space:]]\[?${version}\]? ]]; then
+              in_section=true
+              continue
+            fi
+            
+            # Check if we've hit another version section (end of our section)
+            if [[ $in_section == true && $line =~ ^\#\#[[:space:]]\[ ]]; then
+              break
+            fi
+            
+            # If we're in the target section, collect the content
+            if [[ $in_section == true ]]; then
+              content="${content}${line}"$'\n'
+            fi
+          done < CHANGELOG.md
+          
+          echo "$content"
+        }
         
-        ### What's New
+        # Extract changelog content for this version
+        CHANGELOG_CONTENT=$(extract_changelog_section "$VERSION")
         
-        This release includes bug fixes, improvements, and new features for the ShadowAI mock data generation library.
+        # Create release notes with extracted changelog content
+        cat > release_notes.md << EOF
+        ## 🚀 ShadowAI v${VERSION}
         
         ### Installation
         
-        ```bash
-        pip install shadowai==$VERSION
-        ```
+        \`\`\`bash
+        pip install shadowai==${VERSION}
+        \`\`\`
+        
+        ### Changes in this release
+        
+        ${CHANGELOG_CONTENT}
         
         ### Documentation
         
         For detailed documentation and examples, visit our [GitHub repository](https://github.com/KevinZhang19870314/shadowai).
         
-        ### Changelog
+        ### Full Changelog
         
-        See the full changelog in our repository for detailed information about all changes in this release.
+        **Full Changelog**: https://github.com/KevinZhang19870314/shadowai/blob/main/CHANGELOG.md
         EOF
-        
-        # Replace $VERSION with actual version
-        sed -i "s/\$VERSION/$VERSION/g" release_notes.md
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1

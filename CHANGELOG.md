@@ -8,15 +8,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [0.1.4] - 2024-12-19
+
+### Added
 - GitHub Actions CI/CD workflows for automated testing and releases
-- Release automation script (`scripts/release.py`)
-- Comprehensive release documentation
+- Release automation script (`scripts/release.py`) for streamlined version management
+- Comprehensive release documentation (`RELEASE.md`)
+- Auto-formatting script (`scripts/fix_formatting.py`)
+- Core rules modules: `basic_rules.py`, `combinations.py`, `packages.py`
+- Built-in rule definitions for common data types (email, name, phone, etc.)
+- Rule combination support for complex field generation
+- Rule packages for complete object templates (person, company, product, etc.)
 
 ### Changed
 - Updated development workflow to use automated releases
-- Enhanced Makefile with release management commands
+- Enhanced Makefile with release management commands (`make release`, `make release-check`)
+- Optimized CI configuration to be non-blocking for formatting/linting issues
+- Updated GitHub Actions to latest versions (v4) to resolve deprecation warnings
+- Improved project structure with proper git tracking for core modules
 
 ### Fixed
+- Fixed `.gitignore` that was incorrectly ignoring `lib/shadow_ai/rules/` directory
+- Resolved GitHub Actions build failures due to deprecated action versions
+- Fixed CI failures when no `tests/` directory exists (now skips gracefully)
+- Fixed version synchronization between git tags and `pyproject.toml`
+- Resolved duplicate method definitions in `Rule` class
 
 ### Removed
 
