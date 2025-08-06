@@ -2,6 +2,12 @@
 
 🚀 An AI-powered intelligent mock data generation library
 
+[![PyPI version](https://badge.fury.io/py/shadowai.svg)](https://badge.fury.io/py/shadowai)
+[![CI](https://github.com/KevinZhang19870314/shadowai/actions/workflows/ci.yml/badge.svg)](https://github.com/KevinZhang19870314/shadowai/actions/workflows/ci.yml)
+[![Release](https://github.com/KevinZhang19870314/shadowai/actions/workflows/release.yml/badge.svg)](https://github.com/KevinZhang19870314/shadowai/actions/workflows/release.yml)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ShadowAI is a powerful Python library that uses AI technology to generate high-quality simulated data. Through a flexible rule engine, you can easily generate structured JSON data.
 
 ## 🎯 Design Philosophy

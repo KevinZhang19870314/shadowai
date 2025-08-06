@@ -53,10 +53,30 @@ check: ## Check package
 
 # Publishing
 publish-test: build check ## Publish to test PyPI
-	python scripts/publish.py --test --skip-tests
+	twine upload --repository testpypi dist/*
 
-publish: build check ## Publish to PyPI
-	python scripts/publish.py --skip-tests
+publish: build check ## Publish to PyPI (manual, prefer using release workflow)
+	twine upload dist/*
+
+# Release management
+release: ## Create a new release (usage: make release VERSION=0.1.3)
+	@if [ -z "$(VERSION)" ]; then echo "❌ VERSION is required. Usage: make release VERSION=0.1.3"; exit 1; fi
+	python scripts/release.py $(VERSION)
+
+release-check: ## Check if ready for release
+	@echo "🔍 Checking release readiness..."
+	@git status --porcelain | head -5
+	@echo "📋 Recent commits:"
+	@git log --oneline -5
+	@echo "🏷️ Current version: $(shell make version)"
+	@echo "📦 Current tags:"
+	@git tag -l | tail -5
+
+release-dry-run: ## Test release process without publishing
+	@echo "🧪 Dry run: Testing release process"
+	python -m build
+	python -m twine check dist/*
+	@echo "✅ Package build successful - ready for release"
 
 # Quick start and examples
 quickstart: ## Run quickstart wizard

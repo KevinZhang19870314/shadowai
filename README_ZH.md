@@ -2,6 +2,12 @@
 
 🚀 一个基于AI的智能Mock数据生成库
 
+[![PyPI version](https://badge.fury.io/py/shadowai.svg)](https://badge.fury.io/py/shadowai)
+[![CI](https://github.com/KevinZhang19870314/shadowai/actions/workflows/ci.yml/badge.svg)](https://github.com/KevinZhang19870314/shadowai/actions/workflows/ci.yml)
+[![Release](https://github.com/KevinZhang19870314/shadowai/actions/workflows/release.yml/badge.svg)](https://github.com/KevinZhang19870314/shadowai/actions/workflows/release.yml)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ShadowAI是一个强大的Python库，使用AI技术生成高质量的模拟数据。通过灵活的规则引擎，您可以轻松生成结构化的JSON数据。
 
 ## 🎯 设计理念

@@ -1,0 +1,90 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+
+    - name: Build package
+      run: python -m build
+
+    - name: Check package
+      run: twine check dist/*
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
+    - name: Extract release notes
+      id: extract-release-notes
+      run: |
+        # Extract version from tag
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        
+        # Create release notes
+        cat > release_notes.md << 'EOF'
+        ## 🚀 ShadowAI v$VERSION
+        
+        ### What's New
+        
+        This release includes bug fixes, improvements, and new features for the ShadowAI mock data generation library.
+        
+        ### Installation
+        
+        ```bash
+        pip install shadowai==$VERSION
+        ```
+        
+        ### Documentation
+        
+        For detailed documentation and examples, visit our [GitHub repository](https://github.com/KevinZhang19870314/shadowai).
+        
+        ### Changelog
+        
+        See the full changelog in our repository for detailed information about all changes in this release.
+        EOF
+        
+        # Replace $VERSION with actual version
+        sed -i "s/\$VERSION/$VERSION/g" release_notes.md
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: release_notes.md
+        files: |
+          dist/*.tar.gz
+          dist/*.whl
+        draft: false
+        prerelease: ${{ contains(github.ref, '-') }}
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Update latest release badge
+      run: |
+        echo "✅ Release v${{ steps.extract-release-notes.outputs.VERSION }} created successfully!"
+        echo "📦 Package published to PyPI: https://pypi.org/project/shadowai/${{ steps.extract-release-notes.outputs.VERSION }}/"
+        echo "🏷️ GitHub Release: https://github.com/KevinZhang19870314/shadowai/releases/tag/v${{ steps.extract-release-notes.outputs.VERSION }}" 
