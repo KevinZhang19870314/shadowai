@@ -18,14 +18,17 @@ install-dev: ## Install development dependencies
 
 # Code quality
 format: ## Format code
-	black lib/ example/ scripts/
-	isort lib/ example/ scripts/
+	black .
+	isort .
 
 lint: ## Check code quality
-	black --check lib/
-	isort --check-only lib/
-	flake8 lib/
-	mypy lib/ --ignore-missing-imports
+	black --check .
+	isort --check-only .
+	flake8 .
+	mypy lib/
+
+fix-formatting: ## Auto-fix formatting issues
+	python scripts/fix_formatting.py
 
 # Testing
 test: ## Run tests

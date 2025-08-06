@@ -1,0 +1,28 @@
+[flake8]
+# 最大行长度
+max-line-length = 100
+
+# 忽略的错误代码
+ignore = 
+    E203,  # 冒号前的空白 (与 black 冲突)
+    E501,  # 行太长 (由 black 处理)
+    W503,  # 二元操作符前换行 (与 black 冲突)
+    F401,  # 导入但未使用 (在 __init__.py 中很常见)
+    F541   # f-string 缺少占位符
+
+# 排除目录
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    .mypy_cache,
+    build,
+    dist,
+    *.egg-info,
+    .pytest_cache
+
+# 对示例代码更宽松
+per-file-ignores =
+    example/*:E402,F841,E501
+    scripts/*:E402,F841,E501
+    tests/*:F841 

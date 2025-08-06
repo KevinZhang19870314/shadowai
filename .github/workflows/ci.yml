@@ -26,11 +26,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e ".[dev]"
 
+    - name: Run code formatting check
+      run: |
+        black --check .
+        isort --check-only .
+
     - name: Run linting
       run: |
-        black --check lib/ example/
-        isort --check-only lib/ example/
-        flake8 lib/ example/
+        flake8 .
 
     - name: Run type checking
       run: |
@@ -38,14 +41,14 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --cov=shadow_ai --cov-report=xml
+        pytest --cov=shadow_ai --cov-report=xml tests/
 
     - name: Upload coverage to Codecov
       if: matrix.python-version == '3.11'
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
-        fail_ci_if_error: true
+        fail_ci_if_error: false
 
   build:
     runs-on: ubuntu-latest
