@@ -15,6 +15,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.1.5] - 2024-12-19
+
+### Added
+- Intelligent changelog extraction for automated release notes generation
+- Enhanced release workflow with dynamic content from CHANGELOG.md
+- Professional release documentation with actual change details
+
+### Changed
+- Improved release.yml to automatically parse and extract version-specific changelog content
+- Enhanced release notes format with better structure and documentation links
+- Updated release process to eliminate generic templates in favor of actual change descriptions
+
+### Fixed
+- Replaced static release note templates with dynamic changelog-based content
+- Improved release automation reliability and content accuracy
+
 ## [0.1.4] - 2024-12-19
 
 ### Added
