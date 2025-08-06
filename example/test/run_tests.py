@@ -37,9 +37,7 @@ def main():
     )
     parser.add_argument("--file", help="Specify test file (used when mode=specific)")
     parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
-    parser.add_argument(
-        "--coverage", "-c", action="store_true", help="Generate coverage report"
-    )
+    parser.add_argument("--coverage", "-c", action="store_true", help="Generate coverage report")
 
     args = parser.parse_args()
 

@@ -244,26 +244,18 @@ def demonstrate_data_generation():
 
     try:
         # Generate data using rules
-        result = shadow_ai.generate(
-            basic_rules[0], format_output=False
-        )  # language_rule
+        result = shadow_ai.generate(basic_rules[0], format_output=False)  # language_rule
         print(f"Programming language: {result}")
 
-        result = shadow_ai.generate(
-            example_rules[1], format_output=False
-        )  # framework_rule
+        result = shadow_ai.generate(example_rules[1], format_output=False)  # framework_rule
         print(f"Framework: {result}")
 
         # Generate data using combinations
-        result = shadow_ai.generate(
-            basic_combos[0], format_output=False
-        )  # tech_skill_combo
+        result = shadow_ai.generate(basic_combos[0], format_output=False)  # tech_skill_combo
         print(f"Tech skill combination: {result}")
 
         # Generate data using packages
-        result = shadow_ai.generate(
-            basic_packages[0], format_output=False
-        )  # developer_package
+        result = shadow_ai.generate(basic_packages[0], format_output=False)  # developer_package
         print(f"Developer information: {result}")
 
         # Batch generation

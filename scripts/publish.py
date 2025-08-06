@@ -70,9 +70,7 @@ def update_version(new_version):
             with open(init_file, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            content = re.sub(
-                r'__version__ = "[^"]+"', f'__version__ = "{new_version}"', content
-            )
+            content = re.sub(r'__version__ = "[^"]+"', f'__version__ = "{new_version}"', content)
 
             with open(init_file, "w", encoding="utf-8") as f:
                 f.write(content)
@@ -218,9 +216,7 @@ def main():
     parser.add_argument("--version", required=True, help="Version number to publish")
     parser.add_argument("--test", action="store_true", help="Publish to Test PyPI only")
     parser.add_argument("--skip-tests", action="store_true", help="Skip running tests")
-    parser.add_argument(
-        "--skip-quality", action="store_true", help="Skip code quality checks"
-    )
+    parser.add_argument("--skip-quality", action="store_true", help="Skip code quality checks")
 
     args = parser.parse_args()
 

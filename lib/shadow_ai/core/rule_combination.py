@@ -19,9 +19,7 @@ class RuleCombination(BaseModel):
     """
 
     name: str = Field(..., description="Combination name")
-    description: Optional[str] = Field(
-        default=None, description="Combination description"
-    )
+    description: Optional[str] = Field(default=None, description="Combination description")
     rules: List[Union[str, Rule]] = Field(
         ..., description="List of contained rules (rule names or rule objects)"
     )
@@ -51,12 +49,8 @@ class RuleCombination(BaseModel):
                         rule_names.append(rule)
                     elif hasattr(rule, "name"):
                         rule_names.append(rule.name)
-                rules_text = ", ".join(
-                    rule_names[:3]
-                )  # Limit the number of displayed rules
-                data["description"] = (
-                    f"Combine {rules_text} to create {name.replace('_', ' ')}"
-                )
+                rules_text = ", ".join(rule_names[:3])  # Limit the number of displayed rules
+                data["description"] = f"Combine {rules_text} to create {name.replace('_', ' ')}"
             else:
                 data["description"] = f"Combination for {name.replace('_', ' ')}"
 

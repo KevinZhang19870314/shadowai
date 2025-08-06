@@ -147,11 +147,7 @@ class TestRuleCombinationChainMethods:
 
     def test_add_rule_method(self):
         """Test add_rule method"""
-        combo = (
-            RuleCombination(name="test", rules=["name"])
-            .add_rule("email")
-            .add_rule("phone")
-        )
+        combo = RuleCombination(name="test", rules=["name"]).add_rule("email").add_rule("phone")
 
         assert len(combo.rules) == 3
         assert "name" in combo.rules
@@ -174,9 +170,7 @@ class TestRuleCombinationPromptGeneration:
 
     def test_to_prompt_with_custom_logic(self):
         """Test prompt generation with custom logic"""
-        combo = RuleCombination(
-            name="contact", rules=["email", "phone"], combination_logic="merge"
-        )
+        combo = RuleCombination(name="contact", rules=["email", "phone"], combination_logic="merge")
         prompt = combo.to_prompt()
 
         assert "contact" in prompt

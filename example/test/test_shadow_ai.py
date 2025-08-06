@@ -100,9 +100,7 @@ class TestShadowAIRuleInputs:
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
-        rule_package = RulePackage(
-            name="user", description="User profile", rules=["name", "age"]
-        )
+        rule_package = RulePackage(name="user", description="User profile", rules=["name", "age"])
         result = shadow_ai.generate(rule_package)
 
         assert isinstance(result, dict)
@@ -148,9 +146,7 @@ class TestShadowAIBatchGeneration:
     def test_batch_generation_list_rules(self, mock_agent_class, mock_api_key):
         """Test batch generation with list of rules"""
         mock_agent = Mock()
-        mock_agent.run.return_value.content = (
-            '{"name": "John", "email": "john@example.com"}'
-        )
+        mock_agent.run.return_value.content = '{"name": "John", "email": "john@example.com"}'
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()
@@ -167,9 +163,7 @@ class TestShadowAIBatchGeneration:
     def test_batch_generation_mixed_rules(self, mock_agent_class, mock_api_key):
         """Test batch generation with mixed rule types"""
         mock_agent = Mock()
-        mock_agent.run.return_value.content = (
-            '{"name": "John", "email": "john@example.com"}'
-        )
+        mock_agent.run.return_value.content = '{"name": "John", "email": "john@example.com"}'
         mock_agent_class.return_value = mock_agent
 
         shadow_ai = ShadowAI()

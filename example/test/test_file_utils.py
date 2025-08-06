@@ -52,9 +52,7 @@ class TestJSONOperations:
 
     def test_save_rule_package_to_json(self, temp_json_file):
         """Test saving rule package to JSON"""
-        package = RulePackage(
-            name="person", rules=["name", "email", "age"], category="users"
-        )
+        package = RulePackage(name="person", rules=["name", "email", "age"], category="users")
 
         save_rules_to_json([package], temp_json_file)
 
@@ -140,9 +138,7 @@ class TestYAMLOperations:
 
     def test_save_rule_package_to_yaml(self, temp_yaml_file):
         """Test saving rule package to YAML"""
-        package = RulePackage(
-            name="person", rules=["name", "email", "age"], category="users"
-        )
+        package = RulePackage(name="person", rules=["name", "email", "age"], category="users")
 
         save_rules_to_yaml([package], temp_yaml_file)
 

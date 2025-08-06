@@ -57,9 +57,7 @@ class TestRulePackageCreation:
         rule = Rule(name="name")
         combo = RuleCombination(name="contact", rules=["email", "phone"])
 
-        package = RulePackage(
-            name="mixed_package", rules=[rule, combo, "age", "location"]
-        )
+        package = RulePackage(name="mixed_package", rules=[rule, combo, "age", "location"])
 
         assert package.name == "mixed_package"
         assert len(package.rules) == 4
@@ -86,9 +84,7 @@ class TestRulePackageAutoDescription:
 
     def test_auto_description_complex_name(self):
         """Test description generation for complex package names"""
-        package = RulePackage(
-            name="employee_contact_info", rules=["name", "email", "phone"]
-        )
+        package = RulePackage(name="employee_contact_info", rules=["name", "email", "phone"])
 
         assert package.description == "A collection of rules for employee contact info"
 
@@ -175,9 +171,7 @@ class TestRulePackageChainMethods:
 
     def test_add_rule_method(self):
         """Test add_rule method"""
-        package = (
-            RulePackage(name="test", rules=["name"]).add_rule("email").add_rule("phone")
-        )
+        package = RulePackage(name="test", rules=["name"]).add_rule("email").add_rule("phone")
 
         assert len(package.rules) == 3
         assert "name" in package.rules
@@ -186,17 +180,13 @@ class TestRulePackageChainMethods:
 
     def test_with_category_method(self):
         """Test with_category method"""
-        package = RulePackage(name="user", rules=["name", "email"]).with_category(
-            "users"
-        )
+        package = RulePackage(name="user", rules=["name", "email"]).with_category("users")
 
         assert package.category == "users"
 
     def test_with_version_method(self):
         """Test with_version method"""
-        package = RulePackage(name="user", rules=["name", "email"]).with_version(
-            "2.0.0"
-        )
+        package = RulePackage(name="user", rules=["name", "email"]).with_version("2.0.0")
 
         assert package.version == "2.0.0"
 
@@ -229,9 +219,7 @@ class TestRulePackagePromptGeneration:
 
     def test_to_prompt_with_category(self):
         """Test prompt generation with category"""
-        package = RulePackage(
-            name="employee", rules=["name", "department"], category="hr"
-        )
+        package = RulePackage(name="employee", rules=["name", "department"], category="hr")
         prompt = package.to_prompt()
 
         assert "employee" in prompt

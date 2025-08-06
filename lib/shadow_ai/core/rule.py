@@ -14,9 +14,7 @@ class RuleType(str, Enum):
     """Rule type enumeration"""
 
     RECORD = "record"  # Rule record: generation rule for a single field
-    COMBINATION = (
-        "combination"  # Rule combination: combination rule for multiple fields
-    )
+    COMBINATION = "combination"  # Rule combination: combination rule for multiple fields
     PACKAGE = "package"  # Rule package: a set of related rules
 
 
@@ -32,13 +30,9 @@ class Rule(BaseModel):
         default=None, description="Rule description, guides AI data generation"
     )
     rule_type: RuleType = Field(default=RuleType.RECORD, description="Rule type")
-    metadata: Optional[Dict[str, Any]] = Field(
-        default=None, description="Rule metadata"
-    )
+    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Rule metadata")
     examples: Optional[list] = Field(default=None, description="Example data")
-    constraints: Optional[Dict[str, Any]] = Field(
-        default=None, description="Constraint conditions"
-    )
+    constraints: Optional[Dict[str, Any]] = Field(default=None, description="Constraint conditions")
 
     @field_validator("name")
     @classmethod
@@ -80,7 +74,9 @@ class Rule(BaseModel):
             name, examples_str = input_str.split("|", 1)
             examples = [ex.strip() for ex in examples_str.split(",")]
             if description is None:
-                description = f"Generate a {name.replace('_', ' ')} similar to the provided examples"
+                description = (
+                    f"Generate a {name.replace('_', ' ')} similar to the provided examples"
+                )
             return cls(
                 name=name,
                 description=description,
@@ -96,9 +92,7 @@ class Rule(BaseModel):
         return cls(name=name, description=description, rule_type=RuleType.RECORD)
 
     @classmethod
-    def with_examples(
-        cls, name: str, examples: List[Any], description: str = None
-    ) -> "Rule":
+    def with_examples(cls, name: str, examples: List[Any], description: str = None) -> "Rule":
         """
         Create a rule with examples
 
@@ -111,9 +105,7 @@ class Rule(BaseModel):
             Rule object
         """
         if description is None:
-            description = (
-                f"Generate a {name.replace('_', ' ')} similar to the provided examples"
-            )
+            description = f"Generate a {name.replace('_', ' ')} similar to the provided examples"
 
         return cls(
             name=name,
@@ -138,9 +130,7 @@ class Rule(BaseModel):
             Rule object
         """
         if description is None:
-            description = (
-                f"Generate a {name.replace('_', ' ')} following specified constraints"
-            )
+            description = f"Generate a {name.replace('_', ' ')} following specified constraints"
 
         return cls(
             name=name,
@@ -191,9 +181,7 @@ class Rule(BaseModel):
             prompt_parts.append(f"Examples: {self.examples}")
 
         if self.constraints:
-            constraints_text = ", ".join(
-                [f"{k}={v}" for k, v in self.constraints.items()]
-            )
+            constraints_text = ", ".join([f"{k}={v}" for k, v in self.constraints.items()])
             prompt_parts.append(f"Constraints: {constraints_text}")
 
         return ". ".join(prompt_parts)

@@ -82,9 +82,7 @@ def main():
     print("-" * 30)
 
     # Provide name and rule list, description will be auto-generated
-    user_combo = RuleCombination(
-        name="user_profile", rules=["first_name", "last_name", "email"]
-    )
+    user_combo = RuleCombination(name="user_profile", rules=["first_name", "last_name", "email"])
     result = shadow_ai.generate(user_combo, format_output=False)
     print(f"User combination: {result}")
 
@@ -97,9 +95,7 @@ def main():
     print("-" * 30)
 
     # Provide name and rule list, description will be auto-generated
-    user_package = RulePackage(
-        name="basic_user", rules=["username", "email", "phone", "age"]
-    )
+    user_package = RulePackage(name="basic_user", rules=["username", "email", "phone", "age"])
     result = shadow_ai.generate(user_package, format_output=False)
     print(f"User package: {result}")
 

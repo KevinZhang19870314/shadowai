@@ -32,9 +32,7 @@ class ShadowAI:
     Provides AI-driven mock data generation functionality.
     """
 
-    def __init__(
-        self, model_id: str = "gpt-4o-mini", api_key: Optional[str] = None, **kwargs
-    ):
+    def __init__(self, model_id: str = "gpt-4o-mini", api_key: Optional[str] = None, **kwargs):
         """
         Initialize ShadowAI instance
 
@@ -58,9 +56,7 @@ class ShadowAI:
 
     def generate(
         self,
-        rules: Union[
-            Rule, RuleCombination, RulePackage, List[Union[Rule, str]], str, list, dict
-        ],
+        rules: Union[Rule, RuleCombination, RulePackage, List[Union[Rule, str]], str, list, dict],
         count: int = 1,
         format_output: bool = False,
     ) -> Union[Dict[str, Any], List[Dict[str, Any]], MockDataResponse]:
@@ -96,9 +92,7 @@ class ShadowAI:
                     metadata={
                         "model_id": self.model_id,
                         "rules_count": (
-                            len(processed_rules)
-                            if isinstance(processed_rules, list)
-                            else 1
+                            len(processed_rules) if isinstance(processed_rules, list) else 1
                         ),
                         "generated_count": count,
                     },
@@ -127,9 +121,7 @@ class ShadowAI:
 
     def _process_rules(
         self,
-        rules: Union[
-            Rule, RuleCombination, RulePackage, List[Union[Rule, str]], str, list, dict
-        ],
+        rules: Union[Rule, RuleCombination, RulePackage, List[Union[Rule, str]], str, list, dict],
     ) -> List[Rule]:
         """
         Process input rules into standard Rule objects
@@ -171,9 +163,7 @@ class ShadowAI:
         else:
             raise ValueError(f"Unsupported rules type: {type(rules)}")
 
-    def _dict_to_rule(
-        self, rule_dict: dict
-    ) -> Union[Rule, RuleCombination, RulePackage]:
+    def _dict_to_rule(self, rule_dict: dict) -> Union[Rule, RuleCombination, RulePackage]:
         """
         Convert dictionary to Rule object
 

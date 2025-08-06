@@ -20,17 +20,13 @@ class RulePackage(BaseModel):
     """
 
     name: str = Field(..., description="Rule package name")
-    description: Optional[str] = Field(
-        default=None, description="Rule package description"
-    )
+    description: Optional[str] = Field(default=None, description="Rule package description")
     rules: List[Union[str, Rule, RuleCombination]] = Field(
         ..., description="List of contained rules"
     )
     category: Optional[str] = Field(default=None, description="Rule package category")
     version: str = Field(default="1.0.0", description="Rule package version")
-    metadata: Optional[Dict[str, Any]] = Field(
-        default=None, description="Package metadata"
-    )
+    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Package metadata")
 
     @field_validator("name")
     @classmethod
