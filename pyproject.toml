@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shadowai"
-version = "0.1.2"
+version = "0.1.4"
 description = "AI-powered mock data generation library with flexible rule engine"
 readme = "README.md"
 requires-python = ">=3.8"
