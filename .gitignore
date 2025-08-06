@@ -229,10 +229,15 @@ $RECYCLE.BIN/
 # Demo output directory (created by examples)
 demo_output/
 
-# Rule files created during testing
-rules/
+# Rule files created during testing (temp files only, not the core rules/ directory)
+test_rules/
+temp_rules/
 *.json.bak
 *.yaml.bak
+
+# Generated rule files in demo/example directories
+demo_output/rules/
+example/generated_rules/
 
 # API keys and sensitive files
 .env.local
