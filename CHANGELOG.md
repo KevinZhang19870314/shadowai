@@ -15,6 +15,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.2.0] - 2024-12-20
+
+### Added
+- **Table Generation Support**: Complete tabular data generation functionality
+- **Multiple Output Formats**: Support for Markdown, CSV, HTML, and JSON table formats
+- **Built-in Table Templates**: 5 pre-defined templates (user_profiles, product_catalog, sales_data, employees, financial_data)
+- **TableRule Class**: Specialized rule class for defining table structures and generation rules
+- **TableFormatter Utility**: Advanced formatting tools for various output formats
+- **Table-specific API Methods**:
+  - `generate_table()`: Main table generation method
+  - `quick_table()`: Quick table generation from column names
+  - `generate_table_from_template()`: Template-based table generation
+  - `list_table_templates()`: List available built-in templates
+  - `preview_table_template()`: Preview template structure
+- **File Export Support**: Direct save to files with auto-format detection
+- **Custom Table Configuration**: Support for dictionary-based table definitions
+
+### Changed
+- Extended `generate()` method to support `TableRule` objects
+- Enhanced AI prompt generation for optimized table data creation
+- Updated core imports to include table generation classes
+
+### Fixed
+
+### Removed
+
 ## [0.1.5] - 2024-12-19
 
 ### Added

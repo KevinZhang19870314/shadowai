@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shadowai"
-version = "0.1.5"
-description = "AI-powered mock data generation library with flexible rule engine"
+version = "0.2.0"
+description = "AI-powered mock data generation library with flexible rule engine and table generation support"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
     {name = "Kevin Zhang", email = "kevinzhang19870314@gmail.com"}
 ]
-keywords = ["ai", "mock", "data", "generation", "testing", "agno"]
+keywords = ["ai", "mock", "data", "generation", "testing", "agno", "table", "csv", "markdown"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",

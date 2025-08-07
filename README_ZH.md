@@ -103,9 +103,10 @@ for i in range(1000):
 
 - 🤖 **AI驱动**: 基于Agno框架，支持多种LLM模型
 - 📝 **灵活规则**: 支持规则记录、规则组合和规则包
+- 📊 **表格生成**: 支持生成Markdown、CSV、HTML和JSON格式的表格数据
 - 📄 **多格式支持**: 支持JSON和YAML格式的规则定义
-- 🎯 **精确输出**: 生成结构化的JSON数据
-- 📦 **开箱即用**: 内置常用规则包
+- 🎯 **精确输出**: 生成结构化的JSON数据和格式化表格
+- 📦 **开箱即用**: 内置常用规则包和表格模板
 - ⚡ **极简配置**: 描述性配置，快速上手
 
 ## 📦 安装
@@ -200,6 +201,49 @@ custom_rule = Rule(
 )
 
 result = shadow_ai.generate(custom_rule)
+```
+
+### 表格生成
+
+```python
+from shadow_ai import ShadowAI, TableOutputFormat, TableRule, Rule
+
+shadow_ai = ShadowAI()
+
+# 快速表格生成
+table = shadow_ai.quick_table(
+    "products", 
+    "id", "name", "price", "category",
+    rows=5,
+    output_format=TableOutputFormat.MARKDOWN
+)
+print(table)
+# 生成格式化的Markdown表格
+
+# 使用内置模板
+user_table = shadow_ai.generate_table_from_template(
+    "user_profiles", 
+    rows=10,
+    output_format=TableOutputFormat.CSV,
+    save_to_file="users.csv"
+)
+
+# 自定义表格规则
+custom_table = TableRule.create(
+    name="survey",
+    columns=[
+        Rule(name="response_id").with_examples("RESP001", "RESP002"),
+        Rule(name="score").with_constraints(type="integer", min=1, max=10),
+        Rule(name="feedback").with_examples("Great!", "Good", "Average")
+    ],
+    rows_count=8
+)
+
+result = shadow_ai.generate_table(custom_table, TableOutputFormat.MARKDOWN)
+
+# 列出可用模板
+templates = shadow_ai.list_table_templates()
+print(templates)  # ['user_profiles', 'product_catalog', 'sales_data', 'employees', 'financial_data']
 ```
 
 ## 📖 文档

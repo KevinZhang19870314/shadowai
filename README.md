@@ -103,9 +103,10 @@ for i in range(1000):
 
 - 🤖 **AI-driven**: Based on Agno framework, supports multiple LLM models
 - 📝 **Flexible rules**: Supports rule records, rule combinations, and rule packages
+- 📊 **Table generation**: Generate tabular data in Markdown, CSV, HTML, and JSON formats
 - 📄 **Multi-format support**: Supports JSON and YAML format rule definitions
-- 🎯 **Precise output**: Generates structured JSON data
-- 📦 **Ready to use**: Built-in common rule packages
+- 🎯 **Precise output**: Generates structured JSON data and formatted tables
+- 📦 **Ready to use**: Built-in common rule packages and table templates
 - ⚡ **Minimal configuration**: Descriptive configuration, quick start
 
 ## 📦 Installation
@@ -200,6 +201,49 @@ custom_rule = Rule(
 )
 
 result = shadow_ai.generate(custom_rule)
+```
+
+### Table Generation
+
+```python
+from shadow_ai import ShadowAI, TableOutputFormat, TableRule, Rule
+
+shadow_ai = ShadowAI()
+
+# Quick table generation
+table = shadow_ai.quick_table(
+    "products", 
+    "id", "name", "price", "category",
+    rows=5,
+    output_format=TableOutputFormat.MARKDOWN
+)
+print(table)
+# Generates a formatted Markdown table
+
+# Use built-in templates
+user_table = shadow_ai.generate_table_from_template(
+    "user_profiles", 
+    rows=10,
+    output_format=TableOutputFormat.CSV,
+    save_to_file="users.csv"
+)
+
+# Custom table with rules
+custom_table = TableRule.create(
+    name="survey",
+    columns=[
+        Rule(name="response_id").with_examples("RESP001", "RESP002"),
+        Rule(name="score").with_constraints(type="integer", min=1, max=10),
+        Rule(name="feedback").with_examples("Great!", "Good", "Average")
+    ],
+    rows_count=8
+)
+
+result = shadow_ai.generate_table(custom_table, TableOutputFormat.MARKDOWN)
+
+# List available templates
+templates = shadow_ai.list_table_templates()
+print(templates)  # ['user_profiles', 'product_catalog', 'sales_data', 'employees', 'financial_data']
 ```
 
 ## 📖 Documentation
